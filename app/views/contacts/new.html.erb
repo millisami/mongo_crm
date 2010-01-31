@@ -1,0 +1,7 @@
+<h1>New Contact</h1>
+
+<% form_for :contact, @contact, :url => { :action => "create" } do |f| %>
+  <%= f.text_field :first_name %>  
+  <%= f.text_field :last_name %>  
+  <%= f.submit "create contact" %>
+<% end %>
