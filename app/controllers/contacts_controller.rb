@@ -1,26 +1,33 @@
 class ContactsController < ApplicationController
+  before_filter :find_contact, :except => [:new, :create, :index]
+  respond_to :html, :xml, :json
+
   def index
     @contacts = Contact.all
   end
+
   def new
     @contact = Contact.new
   end
+
   def create
-    @contact = Contact.new(params[:contact])
-    if @contact.save
-      render :new
-    else
-      redirect_to :index
-    end
+    @contact = Contact.create(params[:contact])
+    respond_with(@contact, :location => contacts_path)
   end
-  def edit
-    @contact = Contact.criteria.id(params[:id])
-  end
+  
   def show
-    @contact = Contact.criteria.id(params[:id])    
   end
+
+  def edit
+  end
+
   def update
-    @contact = Contact.criteria.id(params[:id])
     @contact.update_attributes(params[:contact])
+    respond_with(@contact, :location => contacts_path)
+  end
+  
+private
+  def find_contact
+    @contact = Contact.find(params[:id])
   end
 end
