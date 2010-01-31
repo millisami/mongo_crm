@@ -12,8 +12,7 @@ gem "rails", "3.0.pre"
 
 gem "mongo"
 gem "mongo_ext"
-gem "mongoid", "2.0.0.pre"
-gem "formtastic"
+gem 'mongoid', :git => 'git://github.com/durran/mongoid.git', :branch => 'prerelease'
 
 ## Bundle gems used only in certain environments:
 # gem "rspec", :only => :test
