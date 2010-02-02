@@ -1,0 +1,7 @@
+<p><%= link_to "companies", companies_path %></p>
+
+<h1><%= @company %></h1>
+<p><%= link_to "add a contact to #{@company}", new_company_contact_path(@company) %></p>
+<ul>
+<%= render @company.contacts %>
+</ul>

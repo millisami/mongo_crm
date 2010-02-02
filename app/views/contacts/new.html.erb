@@ -1,6 +1,6 @@
 <h1>New Contact</h1>
 
-<% form_for @contact do |form| %>
+<% form_for @contact, :url => company_contacts_path(@company) do |form| %>
   <%= render 'fields', :form => form %>
   <%= form.submit "create contact" %>
 <% end %>

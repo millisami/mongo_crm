@@ -1,9 +1,9 @@
 <h1>Contacts</h1>
-<p><%= link_to "Add a new contact", new_contact_path %></p>
+<p><%= link_to "Add a new contact", new_company_contact_path(@company) %></p>
 <ul>
   <% @contacts.each do |contact| %>
     <li>
-      <%= link_to contact, contact %>
+      <%= link_to contact, company_contact_path(@company, contact) %>
     </li>
   <% end %>  
 </ul>

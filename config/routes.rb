@@ -1,6 +1,11 @@
 MongoCrm::Application.routes.draw do |map|
-  resources :contacts
 
+  resources :companies do
+    resources :contacts
+  end
+  
+  resources :contacts
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -50,7 +55,7 @@ MongoCrm::Application.routes.draw do |map|
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "contacts#index"
+  root :to => "companies#index"
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,4 +1,4 @@
-<% form_for @contact do |form| %>
+<% form_for @contact, :url => company_contact_path(@company, @contact) do |form| %>
   <%= render 'fields', :form => form %>
-  <%= form.submit "create contact" %>
+  <%= form.submit "update contact" %>
 <% end %>

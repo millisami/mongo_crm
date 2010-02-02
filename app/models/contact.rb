@@ -2,10 +2,14 @@ class Contact
   include Mongoid::Document
   include Mongoid::Timestamps
   
-  field :first_name, :type => String
-  field :last_name, :type => String     
+  field :first_name
+  field :last_name
+  field :title
   
-  validates_presence_of :first_name, :last_name
+  belongs_to :company, :inverse_of => :contacts
+    
+  validates_presence_of :first_name
+  validates_presence_of :last_name
     
   def to_s
     "#{first_name} #{last_name}"
